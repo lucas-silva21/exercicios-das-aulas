@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercicio4</title>
+</head>
+<body>
+ 
+  <h1>Calculo das somas basicas.</h1>
+
+  <form id="form">
+    <input id="campo1" type="number" placeholder="primeiro nuemro ">
+    <input id="campo2" type="number" placeholder="segundo numero ">
+    <button>Calcular</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault()
+
+      let primeiro = parseFloat(campo1.value)
+      let segundo = parseFloat(campo2.value)
+
+      if (isNaN(primeiro)) {
+        result.innerHTML = 'Por favor, informe um numero.'
+        return
+      }
+
+      if (isNaN(segundo)) {
+        result.innerHTML = 'Por favor, informe um numero.'
+        return
+      }
+
+      let r1 = primeiro + segundo
+      let r2 = primeiro - segundo
+      let r3 = primeiro * segundo
+      let r4 = primeiro / segundo
+
+      result.innerHTML = `
+        <ul>
+          <li>soma: <b>${r1}</b>.</li>
+          <li>subtração: <b>${r2}</b>.</li>
+          <li>multiplicação: <b>${r3}</b>.</li>
+          <li>divisão: <b>${r4}</b>.</li>
+        </ul>
+      `
+    }
+
+    form.addEventListener('submit', onSubmit)
+  </script>
+</body>
+</html>
